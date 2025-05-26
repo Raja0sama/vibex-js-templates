@@ -1,0 +1,6 @@
+{
+  "name": "users",
+  "routes": {
+    "GET /": { "action": "list", "entity": "user" }
+  }
+}

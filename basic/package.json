@@ -1,0 +1,22 @@
+{
+  "name": "basic",
+  "version": "1.0.0",
+  "main": "app.ts",
+  "description": "Basic Vibe template with JSON structure.",
+  "type": "module",
+  "author": "VibeJS Team",
+  "license": "MIT",
+  "dependencies": {
+    "vibejs": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.3"
+  },
+  "keywords": [
+    "vibejs",
+    "template",
+    "basic",
+    "starter"
+  ]
+}

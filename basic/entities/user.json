@@ -1,0 +1,8 @@
+{
+  "name": "user",
+  "fields": {
+    "id": { "type": "uuid", "primary": true },
+    "email": { "type": "email", "required": true, "unique": true },
+    "password": { "type": "password", "required": true }
+  }
+}
