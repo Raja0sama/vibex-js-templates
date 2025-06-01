@@ -1,0 +1,5 @@
+# Controllers
+
+Place your controller definition files (`.controller.json` or `.controller.ts`) in this directory.
+
+VibeJS automatically generates CRUD operations for your entities, but you can define custom controllers here for additional functionality.

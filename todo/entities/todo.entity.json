@@ -1,0 +1,81 @@
+{
+  "name": "Todo",
+  "tableName": "todos",
+  "description": "Todo items for task management",
+  "fields": {
+    "id": {
+      "type": "number",
+      "primary": true,
+      "autoIncrement": true,
+      "description": "Unique identifier for the todo item"
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "description": "Todo item title"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Detailed description of the todo item"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the todo item is completed"
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["low", "medium", "high"],
+      "default": "medium",
+      "description": "Priority level of the todo item"
+    },
+    "dueDate": {
+      "type": "date",
+      "description": "Due date for the todo item"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tags associated with the todo item"
+    },
+    "createdAt": {
+      "type": "date",
+      "autoGenerate": true,
+      "description": "Creation timestamp"
+    },
+    "updatedAt": {
+      "type": "date",
+      "autoUpdate": true,
+      "description": "Last update timestamp"
+    }
+  },
+  "endpoints": {
+    "create": {
+      "enabled": true,
+      "description": "Create a new todo item"
+    },
+    "read": {
+      "enabled": true,
+      "description": "Get todo item by ID"
+    },
+    "update": {
+      "enabled": true,
+      "description": "Update an existing todo item"
+    },
+    "delete": {
+      "enabled": true,
+      "description": "Delete a todo item"
+    },
+    "list": {
+      "enabled": true,
+      "pagination": true,
+      "filtering": true,
+      "sorting": true,
+      "description": "List all todo items with filtering and pagination"
+    }
+  }
+}

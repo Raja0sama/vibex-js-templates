@@ -1,0 +1,48 @@
+{
+  "name": "Category",
+  "tableName": "categories",
+  "description": "Blog post categories",
+  "fields": {
+    "id": {
+      "type": "number",
+      "primary": true,
+      "autoIncrement": true,
+      "description": "Unique identifier for the category"
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 100,
+      "description": "Category name"
+    },
+    "slug": {
+      "type": "string",
+      "unique": true,
+      "maxLength": 100,
+      "description": "URL-friendly version of the name"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "Category description"
+    },
+    "color": {
+      "type": "string",
+      "maxLength": 7,
+      "description": "Hex color code for the category"
+    },
+    "createdAt": {
+      "type": "date",
+      "default": "NOW()",
+      "description": "When the category was created"
+    }
+  },
+  "relations": {
+    "posts": {
+      "type": "oneToMany",
+      "target": "Post",
+      "mappedBy": "category"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "name": "Comment",
+  "tableName": "comments",
+  "description": "Comments on blog posts",
+  "fields": {
+    "id": {
+      "type": "number",
+      "primary": true,
+      "autoIncrement": true,
+      "description": "Unique identifier for the comment"
+    },
+    "content": {
+      "type": "text",
+      "required": true,
+      "description": "Comment content"
+    },
+    "authorId": {
+      "type": "number",
+      "required": true,
+      "description": "ID of the comment author"
+    },
+    "postId": {
+      "type": "number",
+      "required": true,
+      "description": "ID of the post being commented on"
+    },
+    "parentId": {
+      "type": "number",
+      "description": "ID of the parent comment (for replies)"
+    },
+    "isApproved": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the comment is approved"
+    },
+    "createdAt": {
+      "type": "date",
+      "default": "NOW()",
+      "description": "When the comment was created"
+    },
+    "updatedAt": {
+      "type": "date",
+      "default": "NOW()",
+      "onUpdate": "NOW()",
+      "description": "When the comment was last updated"
+    }
+  },
+  "relations": {
+    "author": {
+      "type": "manyToOne",
+      "target": "User",
+      "joinColumn": "authorId"
+    },
+    "post": {
+      "type": "manyToOne",
+      "target": "Post",
+      "joinColumn": "postId"
+    },
+    "parent": {
+      "type": "manyToOne",
+      "target": "Comment",
+      "joinColumn": "parentId"
+    },
+    "replies": {
+      "type": "oneToMany",
+      "target": "Comment",
+      "mappedBy": "parent"
+    }
+  }
+}

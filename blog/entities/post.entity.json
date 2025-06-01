@@ -1,0 +1,82 @@
+{
+  "name": "Post",
+  "tableName": "posts",
+  "description": "Blog posts",
+  "fields": {
+    "id": {
+      "type": "number",
+      "primary": true,
+      "autoIncrement": true,
+      "description": "Unique identifier for the post"
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255,
+      "description": "Post title"
+    },
+    "slug": {
+      "type": "string",
+      "unique": true,
+      "maxLength": 255,
+      "description": "URL-friendly version of the title"
+    },
+    "content": {
+      "type": "text",
+      "required": true,
+      "description": "Post content in markdown"
+    },
+    "excerpt": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "Short description of the post"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "published", "archived"],
+      "default": "draft",
+      "description": "Post publication status"
+    },
+    "authorId": {
+      "type": "number",
+      "required": true,
+      "description": "ID of the post author"
+    },
+    "categoryId": {
+      "type": "number",
+      "description": "ID of the post category"
+    },
+    "publishedAt": {
+      "type": "date",
+      "description": "When the post was published"
+    },
+    "createdAt": {
+      "type": "date",
+      "default": "NOW()",
+      "description": "When the post was created"
+    },
+    "updatedAt": {
+      "type": "date",
+      "default": "NOW()",
+      "onUpdate": "NOW()",
+      "description": "When the post was last updated"
+    }
+  },
+  "relations": {
+    "author": {
+      "type": "manyToOne",
+      "target": "User",
+      "joinColumn": "authorId"
+    },
+    "category": {
+      "type": "manyToOne",
+      "target": "Category",
+      "joinColumn": "categoryId"
+    },
+    "comments": {
+      "type": "oneToMany",
+      "target": "Comment",
+      "mappedBy": "post"
+    }
+  }
+}

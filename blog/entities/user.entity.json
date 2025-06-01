@@ -1,0 +1,78 @@
+{
+  "name": "User",
+  "tableName": "users",
+  "description": "Blog authors and readers",
+  "fields": {
+    "id": {
+      "type": "number",
+      "primary": true,
+      "autoIncrement": true,
+      "description": "Unique identifier for the user"
+    },
+    "username": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 3,
+      "maxLength": 50,
+      "description": "Unique username"
+    },
+    "email": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "format": "email",
+      "description": "User's email address"
+    },
+    "password": {
+      "type": "string",
+      "required": true,
+      "minLength": 6,
+      "description": "User's password (will be hashed)"
+    },
+    "firstName": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "User's first name"
+    },
+    "lastName": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "User's last name"
+    },
+    "bio": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "User's biography"
+    },
+    "role": {
+      "type": "string",
+      "enum": ["reader", "author", "admin"],
+      "default": "reader",
+      "description": "User's role in the blog"
+    },
+    "createdAt": {
+      "type": "date",
+      "default": "NOW()",
+      "description": "When the user was created"
+    },
+    "updatedAt": {
+      "type": "date",
+      "default": "NOW()",
+      "onUpdate": "NOW()",
+      "description": "When the user was last updated"
+    }
+  },
+  "relations": {
+    "posts": {
+      "type": "oneToMany",
+      "target": "Post",
+      "mappedBy": "author"
+    },
+    "comments": {
+      "type": "oneToMany",
+      "target": "Comment",
+      "mappedBy": "author"
+    }
+  }
+}

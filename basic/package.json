@@ -1,22 +1,27 @@
 {
-  "name": "basic",
+  "name": "{{projectName}}",
   "version": "1.0.0",
+  "description": "A VibeJS application",
   "main": "app.ts",
-  "description": "Basic Vibe template with JSON structure.",
   "type": "module",
-  "author": "VibeJS Team",
-  "license": "MIT",
-  "dependencies": {
-    "vibejs": "^1.0.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20.0.0",
-    "typescript": "^5.3.3"
+  "scripts": {
+    "dev": "vibe dev",
+    "start": "bun run app.ts",
+    "build": "vibe build",
+    "test": "bun test"
   },
   "keywords": [
     "vibejs",
-    "template",
-    "basic",
-    "starter"
-  ]
+    "backend",
+    "api",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "vibex": "^0.1.0-beta.1"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
 }

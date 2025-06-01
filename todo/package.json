@@ -1,26 +1,28 @@
 {
-  "name": "todo",
+  "name": "{{projectName}}",
   "version": "1.0.0",
+  "description": "A VibeJS Todo Application",
   "main": "app.ts",
-  "description": "Todo Vibe template with module structure.",
   "type": "module",
-  "author": "VibeJS Team",
-  "license": "MIT",
-  "dependencies": {
-    "vibejs": "^1.0.0",
-    "bcryptjs": "^2.4.3"
-  },
-  "devDependencies": {
-    "@types/bcryptjs": "^2.4.6",
-    "@types/node": "^20.0.0",
-    "typescript": "^5.3.3"
+  "scripts": {
+    "dev": "vibe dev",
+    "start": "bun run app.ts",
+    "build": "vibe build",
+    "test": "bun test"
   },
   "keywords": [
     "vibejs",
-    "template",
     "todo",
-    "module",
-    "auth",
-    "sqlite"
-  ]
+    "backend",
+    "api",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "vibex": "^0.1.0-beta.1"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
 }
